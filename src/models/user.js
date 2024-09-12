@@ -21,11 +21,7 @@ const User = sequelize.define('User', {
     type: DataTypes.STRING,
     allowNull: false, // اجعل الحقل مطلوبًا
   },
-  username: {
-    type: DataTypes.STRING,
-    allowNull: false,
-    unique: true,
-  },
+
   email: {
     type: DataTypes.STRING,
     allowNull: false,
@@ -37,8 +33,6 @@ const User = sequelize.define('User', {
   },
 });
 
-module.exports = User;
-
-
+module.exports = User;    
 
 

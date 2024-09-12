@@ -1,10 +1,10 @@
-// config/database.js
-
 const { Sequelize } = require('sequelize');
 
-// إعدادات الاتصال بقاعدة البيانات
-const sequelize = new Sequelize('pfaDB', 'fileuser', 'fileuserpassword', {
-  host: 'localhost',
+// استخدام متغير البيئة لقاعدة البيانات
+const databaseUrl = process.env.DATABASE_URL || 'postgres://fileuser:fileuserpassword@localhost:5432/pfaDB';
+
+// إعدادات الاتصال بقاعدة البيانات باستخدام URL
+const sequelize = new Sequelize(databaseUrl, {
   dialect: 'postgres', // استخدام PostgreSQL كقاعدة بيانات
   logging: false, // تعطيل السجلات في وحدة التحكم
 });

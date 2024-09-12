@@ -1,9 +1,9 @@
 // index.js أو config/associations.js
 
-const sequelize = require('./config/database');
-const User = require('./models/user');
-const LabResult = require('./models/labResult');
-const Lab = require('./models/lab');
+const sequelize = require('./database');
+const User = require('../models/user');
+const LabResult = require('../models/labResult');
+const Lab = require('../models/lab');
 
 // علاقة المستخدمين مع النتائج المخبرية (كل مستخدم يمكن أن يكون لديه عدة نتائج مخبرية)
 User.hasMany(LabResult, { foreignKey: 'userId' });

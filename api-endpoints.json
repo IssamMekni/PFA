@@ -1,0 +1,74 @@
+{
+    "routes": {
+      "auth": {
+        "register": {
+          "method": "POST",
+          "url": "/api/auth/register",
+          "description": "تسجيل مستخدم جديد",
+          "body": {
+            "firstName": "string",
+            "lastName": "string",
+            "email": "string",
+            "password": "string"
+          },
+          "response": {
+            "message": "User registered successfully",
+            "token": "JWT token"
+          }
+        },
+        "login": {
+          "method": "POST",
+          "url": "/api/auth/login",
+          "description": "تسجيل دخول المستخدم",
+          "body": {
+            "email": "string",
+            "password": "string"
+          },
+          "response": {
+            "message": "User logged in successfully",
+            "token": "JWT token"
+          }
+        }
+      },
+      "labResults": {
+        "getAllResults": {
+          "method": "GET",
+          "url": "/api/lab-results",
+          "description": "عرض جميع التحاليل الخاصة بالمستخدم",
+          "response": {
+            "results": [
+              {
+                "id": "integer",
+                "testType": "string",
+                "filePath": "string (URL of PDF file)",
+                "createdAt": "datetime"
+              }
+            ]
+          }
+        },
+        "viewResult": {
+          "method": "GET",
+          "url": "/api/lab-results/:id",
+          "description": "عرض التحليل (PDF)",
+          "params": {
+            "id": "integer"
+          },
+          "response": {
+            "file": "PDF content"
+          }
+        },
+        "downloadResult": {
+          "method": "GET",
+          "url": "/api/lab-results/:id/download",
+          "description": "تنزيل التحليل (PDF)",
+          "params": {
+            "id": "integer"
+          },
+          "response": {
+            "file": "PDF download"
+          }
+        }
+      }
+    }
+  }
+  
