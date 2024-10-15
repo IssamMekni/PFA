@@ -1,74 +1,224 @@
 {
-    "routes": {
-      "auth": {
-        "register": {
-          "method": "POST",
-          "url": "/api/auth/register",
-          "description": "تسجيل مستخدم جديد",
-          "body": {
-            "firstName": "string",
-            "lastName": "string",
-            "email": "string",
-            "password": "string"
-          },
-          "response": {
-            "message": "User registered successfully",
-            "token": "JWT token"
-          }
+  "routes": {
+    "auth": {
+      "register": {
+        "method": "POST",
+        "url": "/api/auth/register",
+        "description": "registering new user",
+        "body": {
+          "firstName": "string",
+          "lastName": "string",
+          "email": "string",
+          "password": "string"
         },
-        "login": {
-          "method": "POST",
-          "url": "/api/auth/login",
-          "description": "تسجيل دخول المستخدم",
-          "body": {
-            "email": "string",
-            "password": "string"
-          },
-          "response": {
-            "message": "User logged in successfully",
-            "token": "JWT token"
-          }
+        "response": {
+          "message": "User registered successfully",
+          "token": "JWT token"
         }
       },
-      "labResults": {
-        "getAllResults": {
+      "login": {
+        "method": "POST",
+        "url": "/api/auth/login",
+        "description": "تسجيل دخول المستخدم",
+        "body": {
+          "email": "string",
+          "password": "string"
+        },
+        "response": {
+          "message": "User logged in successfully",
+          "token": "JWT token"
+        }
+      }
+    },
+    "labResults": {
+      "getAllResults": {
+        "method": "GET",
+        "url": "/api/lab-results",
+        "description": "عرض جميع التحاليل الخاصة بالمستخدم",
+        "response": {
+          "results": [
+            {
+              "id": "integer",
+              "testType": "string",
+              "filePath": "string (URL of PDF file)",
+              "createdAt": "datetime"
+            }
+          ]
+        }
+      },
+      "viewResult": {
+        "method": "GET",
+        "url": "/api/lab-results/:id",
+        "description": "عرض التحليل (PDF)",
+        "params": {
+          "id": "integer"
+        },
+        "response": {
+          "file": "PDF content"
+        }
+      },
+      "downloadResult": {
+        "method": "GET",
+        "url": "/api/lab-results/:id/download",
+        "description": "تنزيل التحليل (PDF)",
+        "params": {
+          "id": "integer"
+        },
+        "response": {
+          "file": "PDF download"
+        }
+      }
+    },
+    "admin": {
+      "users": {
+        "getAllUsers": {
           "method": "GET",
-          "url": "/api/lab-results",
-          "description": "عرض جميع التحاليل الخاصة بالمستخدم",
+          "url": "/api/admin/users",
+          "description": "Retrieve all users",
           "response": {
-            "results": [
+            "users": [
               {
                 "id": "integer",
-                "testType": "string",
-                "filePath": "string (URL of PDF file)",
+                "firstName": "string",
+                "lastName": "string",
+                "email": "string",
                 "createdAt": "datetime"
               }
             ]
           }
         },
-        "viewResult": {
-          "method": "GET",
-          "url": "/api/lab-results/:id",
-          "description": "عرض التحليل (PDF)",
-          "params": {
-            "id": "integer"
+        "addOrUpdateUsers": {
+          "method": "POST",
+          "url": "/api/admin/users",
+          "description": "Add or update users",
+          "body": {
+            "users": [
+              {
+                "firstName": "string",
+                "lastName": "string",
+                "email": "string",
+                "password": "string"
+              }
+            ]
           },
           "response": {
-            "file": "PDF content"
+            "message": "Users added or updated",
+            "added": "integer",
+            "updated": "integer"
           }
         },
-        "downloadResult": {
-          "method": "GET",
-          "url": "/api/lab-results/:id/download",
-          "description": "تنزيل التحليل (PDF)",
-          "params": {
-            "id": "integer"
+        "deleteUserByAttribute": {
+          "method": "DELETE",
+          "url": "/api/admin/users",
+          "description": "Delete users by attribute",
+          "body": {
+            "attribute": "value"
           },
           "response": {
-            "file": "PDF download"
+            "message": "User(s) deleted"
+          }
+        }
+      },
+      "labs": {
+        "getAllLabs": {
+          "method": "GET",
+          "url": "/api/admin/labs",
+          "description": "Retrieve all labs",
+          "response": {
+            "labs": [
+              {
+                "id": "integer",
+                "name": "string",
+                "location": "string",
+                "email": "string",
+                "phoneNumber": "integer",
+                "createdAt": "datetime"
+              }
+            ]
+          }
+        },
+        "addOrUpdateLabs": {
+          "method": "POST",
+          "url": "/api/admin/labs",
+          "description": "Add or update labs",
+          "body": {
+            "labs": [
+              {
+                "name": "string",
+                "location": "string",
+                "email": "string",
+                "phoneNumber": "integer"
+              }
+            ]
+          },
+          "response": {
+            "message": "Labs added or updated",
+            "added": "integer",
+            "updated": "integer"
+          }
+        },
+        "deleteLabByAttribute": {
+          "method": "DELETE",
+          "url": "/api/admin/labs",
+          "description": "Delete labs by attribute",
+          "body": {
+            "attribute": "value"
+          },
+          "response": {
+            "message": "Lab(s) deleted"
+          }
+        }
+      },
+      "labResults": {
+        "getAllLabresults": {
+          "method": "GET",
+          "url": "/api/admin/lab-results",
+          "description": "Retrieve all lab results",
+          "response": {
+            "labResults": [
+              {
+                "id": "integer",
+                "testType": "string",
+                "filePath": "string (URL of PDF file)",
+                "labId": "integer",
+                "userId": "integer",
+                "createdAt": "datetime"
+              }
+            ]
+          }
+        },
+        "addLabresults": {
+          "method": "POST",
+          "url": "/api/admin/lab-results",
+          "description": "Add lab results",
+          "body": {
+            "labResults": [
+              {
+                "date": "date",
+                "testType": "string",
+                "result": "string",
+                "filePath": "string",
+                "labId": "integer",
+                "userId": "integer"
+              }
+            ]
+          },
+          "response": {
+            "message": "Lab results added"
+          }
+        },
+        "deleteLabresultByAttribute": {
+          "method": "DELETE",
+          "url": "/api/admin/lab-results",
+          "description": "Delete lab results by attribute",
+          "body": {
+            "attribute": "value"
+          },
+          "response": {
+            "message": "Labresult(s) deleted"
           }
         }
       }
     }
   }
-  
+}
