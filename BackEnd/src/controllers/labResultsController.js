@@ -8,7 +8,7 @@ exports.getUserLabResults = async (req, res) => {
     const labResults = await LabResult.findAll({ where: { userId } });
 
     if (!labResults || labResults.length === 0) {
-      return res.status(404).json({ message: 'No lab results found' });
+      return res.json({ message: 'No lab results found' });
     }
 
     res.json(labResults);

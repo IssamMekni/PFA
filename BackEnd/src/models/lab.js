@@ -15,6 +15,10 @@ const Lab = sequelize.define('Lab', {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  email: {
+    type: DataTypes.STRING,
+    allowNull: true,
+  },
   phoneNumber:{
     type:DataTypes.INTEGER,
     allowNull:true

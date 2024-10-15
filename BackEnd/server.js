@@ -1,16 +1,18 @@
 const express = require('express');
+const app = express();
+
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const sequelize = require('./src/config/associations'); // connecting to database
 const path = require('path');
 // get routes
-const authRoutes = require('./src/routes/auth');
-const labResultsRoutes = require('./src/routes/labResults');
+const mainRoute = require('./src/routes/index');
+
 
 // using the envirement variables
 //require('dotenv').config();
 
-const app = express();
+
 const port = process.env.PORT; // ask a question here : why it works without "require('dotev').config()"
 
 
@@ -19,11 +21,7 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// configure routes 
-app.use('/api/auth', authRoutes); 
-app.use('/api/lab-results', labResultsRoutes);
-
-
+app.use(mainRoute);
 
 // Serve static files from the 'dist' directory
 app.use(express.static(path.resolve(__dirname,"../", 'FrontEnd', 'dist')));
@@ -36,7 +34,7 @@ app.get('*', (req, res) => {
 
 
 
-// بدء تشغيل الخادم
+// starting the server
 app.listen(port, async () => {
   try {
     console.log(`Server is running on port ${port}`);

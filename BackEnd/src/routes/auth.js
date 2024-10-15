@@ -1,5 +1,5 @@
 // src/routes/auth.js
-const path = require('path');
+    
 
 const express = require('express');
 const router = express.Router();
