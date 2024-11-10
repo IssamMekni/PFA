@@ -23,14 +23,14 @@ const Dashboard = () => {
         }
         console.log(response.data.message);
       } catch (error) {
-        // console.error('Error fetching lab results:', error);
+        console.error('Error fetching lab results:', error);
       }
     };
     fetchResults();
   }, []);
 
   return (
-    <Box sx={{ p: 3 }}>
+    <Box sx={{ p: "15vh 10px" , minHeight:"100vh"}}>
       <Typography variant="h4" gutterBottom>
         Lab Results Dashboard
       </Typography>

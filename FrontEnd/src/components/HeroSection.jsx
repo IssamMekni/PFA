@@ -2,11 +2,15 @@ import React, { useState, useEffect } from 'react';
 import { Box, Typography, Button, IconButton } from '@mui/material';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
-
+import img1 from "../img/landing1.jpeg";
+import img2 from "../img/images (5).jpeg";
+import img3 from "../img/images (6).jpeg";
+import img4 from "../img/images (7).jpeg";
+import img5 from "../img/landing1.jpeg";
 const sliderImages = [
-  'https://via.placeholder.com/1200x800?text=Medical+Lab+1',
-  'https://via.placeholder.com/1200x800?text=Medical+Lab+2',
-  'https://via.placeholder.com/1200x800?text=Medical+Lab+3',
+  img1,
+  img2,
+  img3,
 ];
 
 const HeroSection = ({ id }) => {
@@ -41,7 +45,7 @@ const HeroSection = ({ id }) => {
         prevSlide === 0 ? sliderImages.length - 1 : prevSlide - 1
       );
       setIsAnimating(false);
-    }, 500); // Match the transition duration
+    }, 4500); // Match the transition duration
   };
 
   return (
@@ -76,8 +80,6 @@ const HeroSection = ({ id }) => {
             display: 'flex',
             transform: `translateX(${-currentSlide * 100}%)`,
             transition: 'transform 0.5s ease-in-out',
-            width: `${sliderImages.length * 100}%`,
-            height: '100%',
           }}
         >
           {sliderImages.map((image, index) => (
@@ -89,7 +91,6 @@ const HeroSection = ({ id }) => {
               sx={{
                 width: '100%',
                 height: '100%',
-                objectFit: 'cover',
                 flexShrink: 0,
               }}
             />

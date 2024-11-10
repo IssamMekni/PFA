@@ -1,21 +1,23 @@
 import React from 'react';
 import { Grid, Box, Typography, Container } from '@mui/material';
-
+import img1 from "../img/images (2).png";
+import img2 from "../img/images (3).png";
+import img3 from "../img/images (4).png";
 const features = [
   {
     title: 'Easy Access',
     description: 'Your test results are available 24/7, anytime, anywhere.',
-    image: 'https://via.placeholder.com/500x300?text=Easy+Access',
+    image:img1,
   },
   {
     title: 'Accuracy & Security',
     description: 'We prioritize accuracy and the security of your medical data.',
-    image: 'https://via.placeholder.com/500x300?text=Accuracy+%26+Security',
+    image: img2,
   },
   {
     title: 'Comprehensive Reports',
     description: 'Access all your medical reports in one place with detailed insights.',
-    image: 'https://via.placeholder.com/500x300?text=Comprehensive+Reports',
+    image: img3,
   },
 ];
 
@@ -42,7 +44,7 @@ const FeaturesSection = ({ id }) => {
                 <img
                   src={feature.image}
                   alt={feature.title}
-                  style={{ width: '100%', borderRadius: '8px', marginBottom: '16px' }}
+                  style={{  borderRadius: '8px', marginBottom: '16px',height:"100%", overflow:"hidden" }}
                 />
                 <Typography variant="h6" color="secondary" gutterBottom>
                   {feature.title}
