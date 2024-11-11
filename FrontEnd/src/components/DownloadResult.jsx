@@ -10,7 +10,7 @@ const DownloadResult = () => {
     const downloadResult = async () => {
       try {
         const response = await axios({
-          url: `/api/lab-results/${id}/download`,
+          url: `${location.origin}/api/lab-results/${id}/download`,
           method: 'GET',
           responseType: 'blob', // نوع الملف
         });

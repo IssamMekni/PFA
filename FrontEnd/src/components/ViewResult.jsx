@@ -12,7 +12,7 @@ const ViewResult = () => {
   //   // جلب ملف الـ PDF للتحليل
   //   const fetchResult = async () => {
   //     try {
-  //       const response = await axios.get(`/api/lab-results/${id}`);
+  //       const response = await axios.get(`${location.origin}/api/lab-results/${id}`);
   //       setPdfUrl(response.data);
         // setLoading(false);
   //     } catch (error) {

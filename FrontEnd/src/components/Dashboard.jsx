@@ -13,7 +13,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchResults = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/api/lab-results', {
+        const response = await axios.get(`${location.origin}/api/lab-results`, {
           headers: {
             Authorization: "Bearer " + localStorage.getItem("token"),
           },
@@ -45,7 +45,7 @@ const Dashboard = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {results.map((result) => (
+            {results.length&&results.map((result) => (
               <TableRow key={result.id}>
                 <TableCell>{result.testType}</TableCell>
                 <TableCell>{new Date(result.createdAt).toLocaleDateString()}</TableCell>
