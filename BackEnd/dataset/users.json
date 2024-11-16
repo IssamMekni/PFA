@@ -1,0 +1,65 @@
+{
+    "users": [
+      {
+        "firstName": "Ali",
+        "lastName": "Ben Ali",
+        "email": "ali.benali@example.com",
+        "password": "pass1234"
+      },
+      {
+        "firstName": "Sara",
+        "lastName": "Bouaziz",
+        "email": "sara.bouaziz@example.com",
+        "password": "sara1234"
+      },
+      {
+        "firstName": "Mohamed",
+        "lastName": "Jlassi",
+        "email": "mohamed.jlassi@example.com",
+        "password": "momo1234"
+      },
+      {
+        "firstName": "Khaled",
+        "lastName": "Trabelsi",
+        "email": "khaled.trabelsi@example.com",
+        "password": "khaled12"
+      },
+      {
+        "firstName": "Nadia",
+        "lastName": "Saidi",
+        "email": "nadia.saidi@example.com",
+        "password": "nadia123"
+      },
+      {
+        "firstName": "Amina",
+        "lastName": "Haddad",
+        "email": "amina.haddad@example.com",
+        "password": "amina123"
+      },
+      {
+        "firstName": "Hassan",
+        "lastName": "Hamdi",
+        "email": "hassan.hamdi@example.com",
+        "password": "hassan12"
+      },
+      {
+        "firstName": "Leila",
+        "lastName": "Majri",
+        "email": "leila.majri@example.com",
+        "password": "leila123"
+      },
+      {
+        "firstName": "Rania",
+        "lastName": "Moussa",
+        "email": "rania.moussa@example.com",
+        "password": "rania123"
+      },
+      {
+        "firstName": "Omar",
+        "lastName": "Kacem",
+        "email": "omar.kacem@example.com",
+        "password": "omar1234"
+      }
+    ]
+  }
+  

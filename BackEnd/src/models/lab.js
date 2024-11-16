@@ -20,7 +20,7 @@ const Lab = sequelize.define('Lab', {
     allowNull: true,
   },
   phoneNumber:{
-    type:DataTypes.INTEGER,
+    type:DataTypes.STRING,
     allowNull:true
   }
 }, {
