@@ -1,16 +1,17 @@
 import React from 'react';
 import { Box, Typography, Container, Grid } from '@mui/material';
+import img1 from "../img/person1.jpeg"
 
 const testimonials = [
   {
     name: 'John Doe',
     content: 'The service was fast and efficient, and I was able to access my results in no time.',
-    image: 'https://via.placeholder.com/150x150?text=John+Doe',
+    image: img1,
   },
   {
     name: 'Jane Smith',
     content: 'Very professional lab with reliable reports. Highly recommend!',
-    image: 'https://via.placeholder.com/150x150?text=Jane+Smith',
+    image: img1,
   },
 ];
 

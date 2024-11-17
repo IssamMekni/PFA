@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import { useTheme } from '@mui/material/styles';
 import useMediaQuery from '@mui/material/useMediaQuery';
+// import downloadLabResult from './downloadLabResult.js'; // Import the download function
+import downloadLabResult from    './downloadResult';
 
 const Dashboard = () => {
   const [results, setResults] = useState([]);
@@ -29,8 +31,12 @@ const Dashboard = () => {
     fetchResults();
   }, []);
 
+  const handleDownload = (id) => {
+    downloadLabResult(id); // Trigger the download function
+  };
+
   return (
-    <Box sx={{ p: "15vh 10px" , minHeight:"100vh"}}>
+    <Box sx={{ p: "15vh 10px", minHeight: "100vh" }}>
       <Typography variant="h4" gutterBottom>
         Lab Results Dashboard
       </Typography>
@@ -45,7 +51,7 @@ const Dashboard = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {results.length&&results.map((result) => (
+            {results.length && results.map((result) => (
               <TableRow key={result.id}>
                 <TableCell>{result.testType}</TableCell>
                 <TableCell>{new Date(result.createdAt).toLocaleDateString()}</TableCell>
@@ -66,11 +72,10 @@ const Dashboard = () => {
                     <Grid item xs={12} sm="auto">
                       <Button
                         fullWidth={isSmallScreen}
-                        component={Link}
-                        to={`/lab-results/${result.id}/download`}
                         variant="outlined"
                         color="secondary"
                         size={isSmallScreen ? 'small' : 'medium'}
+                        onClick={() => handleDownload(result.id)} // Call the download function
                       >
                         Download
                       </Button>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Grid, Box, Typography, Container } from '@mui/material';
+import imgdoctor from "../img/doctor.jpg";
 
 const AboutUsSection = ({ id }) => {
   return (
@@ -17,7 +18,7 @@ const AboutUsSection = ({ id }) => {
         <Grid container spacing={4}>
           <Grid item xs={12} md={6}>
             <img
-              src="https://via.placeholder.com/600x400?text=About+Us"
+              src= {imgdoctor}
               alt="About Us"
               style={{ width: '100%', borderRadius: '8px' }}
             />

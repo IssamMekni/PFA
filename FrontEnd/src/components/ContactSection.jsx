@@ -1,5 +1,6 @@
 import React from 'react';
 import { Box, Typography, Container, Grid } from '@mui/material';
+import mapimg from "../img/map.png"
 
 const ContactSection = ({ id }) => {
   return (
@@ -40,7 +41,7 @@ const ContactSection = ({ id }) => {
               Find Us
             </Typography>
             <img
-              src="https://via.placeholder.com/600x400?text=Map+Location"
+              src={mapimg}
               alt="Map Location"
               style={{ width: '100%', borderRadius: '8px' }}
             />

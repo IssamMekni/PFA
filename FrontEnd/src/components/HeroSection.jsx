@@ -9,8 +9,6 @@ import img4 from "../img/images (7).jpeg";
 import img5 from "../img/landing1.jpeg";
 const sliderImages = [
   img1,
-  img2,
-  img3,
 ];
 
 const HeroSection = ({ id }) => {

@@ -10,7 +10,6 @@ import LoginPage from "./components/LoginPage";
 import SignupPage from "./components/SignupPage";
 import Dashboard from "./components/Dashboard";
 import ViewResult from "./components/ViewResult";
-import DownloadResult from "./components/DownloadResult";
 const App = () => {
   return (
     <Router>
@@ -27,10 +26,7 @@ const App = () => {
             <Route path="/api/auth/register" element={<LoginPage/>}/>
             <Route path="/d" element={<Dashboard />} />
             <Route path="/lab-results/:id" element={<ViewResult />} />
-            <Route
-              path="/lab-results/:id/download"
-              element={<DownloadResult />}
-            />
+
           </Routes>
         </div>
         <Footer />
