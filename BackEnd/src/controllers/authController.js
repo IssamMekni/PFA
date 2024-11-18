@@ -29,23 +29,23 @@ exports.registerUser = async (req, res) => {
     // create JWT
     const token = jwt.sign({ userId: user.id }, jwtSecret, { expiresIn: '1h' });
 
-    // إزالة كلمة المرور من كائن المستخدم قبل إرجاعه
+    //remove password from object
     const { password: _, ...userWithoutPassword } = user.toJSON();
 
     res.status(201).json({ token, user: userWithoutPassword });
   } catch (error) {
     console.error('error in registering the new user :', error);
     
-    // التحقق من نوع الخطأ
+   
     if (error.name === 'SequelizeUniqueConstraintError') {
-      res.status(400).json({ message: 'البريد الإلكتروني مستخدم مسبقاً' });
+      res.status(400).json({ message: "email already exist" });
     } else {
-      res.status(500).json({ message: 'خطأ في تسجيل المستخدم' });
+      res.status(500).json({ message: "error in registering" });
     }
   }
 };
 
-// تسجيل الدخول
+// login
 exports.loginUser = async (req, res) => {
   const { email, password } = req.body;
 

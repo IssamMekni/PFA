@@ -1,7 +1,7 @@
 const path = require('path');
 const LabResult = require('../models/labResult');
 
-// جلب تحاليل المستخدم
+// fetching labresults
 exports.getUserLabResults = async (req, res) => {
   try {
     const userId = req.user.userId; // Adjust according to how the userId is stored in JWT
@@ -18,7 +18,7 @@ exports.getUserLabResults = async (req, res) => {
   }
 };
 
-// عرض ملف PDF باستخدام الـ id
+// shwo labresult by id
 exports.viewLabResult = async (req, res) => {
   try {
     const id = req.params.id;
@@ -41,7 +41,7 @@ exports.viewLabResult = async (req, res) => {
   }
 };
 
-// تنزيل ملف PDF باستخدام الـ id
+// download labresults by id
 exports.downloadLabResult = async (req, res) => {
   try {
     const id = req.params.id;
